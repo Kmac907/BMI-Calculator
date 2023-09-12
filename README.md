@@ -6,14 +6,14 @@ As I close in on my exam date, a lot of what I see azure used for is hosting web
 
 Below are the services and technologies I made use of I made use of:
 
-- HTML
-- CSS
-- Python
-- Flask
-- Docker
-- Azure Container Apps
-- Azure Container Instances
-- Azure Container Registry
+  - HTML
+  - CSS
+  - Python
+  - Flask
+  - Docker
+  - Azure Container Apps
+  - Azure Container Instances
+  - Azure Container Registry
 
 If you would like to view or use the web application. You can do so here [link](bmi.kmac907.tech)
 
