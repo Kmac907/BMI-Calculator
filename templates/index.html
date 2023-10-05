@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+
+        <form method="POST" action="/bmi">
+            <label for="unit">Select Unit System:</label>
+            <select name="unit" id="unit">
+                <option value="metric">Metric (kg/cm)</option>
+                <option value="imperial">Imperial (lb/ft-in)</option>
+            </select>
+
+            <div class="input">
+                <label for="weight">Weight:</label>
+                <input type="number" name="weight" id="weight" required placeholder="Enter weight (kg)">
+            </div>
+            <div class="input">
+                <label for="height">Height:</label>
+                <input type="number" name="height" id="height" required placeholder="Enter height (cm)" step="0.01">
+            </div>
+            <div class="button">
+                <button type="submit">Calculate BMI</button>
+            </div>
+        </form>
+
+        <!-- Display BMI result -->
+        {% if bmi %}
+        <div class="result">
+            <p>Your BMI is: {{ bmi }}</p>
+            <p>Category: {{ category }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Display health risks and benefits -->
+        {% if category and risk and benefit %}
+        <div class="health-info">
+            <h2>Health Information:</h2>
+            <p><strong>Risks:</strong> {{ risk }}</p>
+            <p><strong>Benefits:</strong> {{ benefit }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Display recommendations -->
+        {% if category and recommendation %}
+        <div class="recommendation">
+            <h2>Recommendation:</h2>
+            <p>{{ recommendation }}</p>
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
